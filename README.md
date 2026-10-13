@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ScannerPlusX Web
 
-## Getting Started
+موقع تعريفي مستقل لتطبيق Android، مبني بـ Next.js وTailwind CSS وMotion. يدعم العربية والإنجليزية والإسبانية والفرنسية والألمانية والهندية، مع صفحات دعم وخصوصية مترجمة، صور المشروع الأصلية ورسوم إضافية للمميزات.
 
-First, run the development server:
+## اللغات والروابط
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- العربية (الافتراضية): `/`، `/privacy`، `/support`.
+- الإنجليزية `/en`، الإسبانية `/es`، الفرنسية `/fr`، الألمانية `/de`، الهندية `/hi`؛ ولكل منها `/privacy` و`/support` تحت مسار اللغة نفسه.
+- مبدّل اللغة يحافظ على نوع الصفحة الحالية. تُصدَّر الصفحات الثماني عشرة كملفات HTML ثابتة، وتحدد كل صفحة `lang` واتجاه النص المناسبين.
+
+## العمل محليًا
+
+```powershell
+pnpm install
+pnpm lint
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ينشئ `pnpm build` موقعًا ثابتًا في مجلد `out`. يمكن رفع محتوياته إلى استضافة تدعم HTTPS وملفات الجذر العامة. لم يُضف الموقع إلى تطبيق Android ولم يُنشر تلقائيًا.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ربط الموقع بـ Google Play
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. انسخ `.env.example` إلى `.env.local` داخل مجلد الموقع.
+2. بعد نشر الموقع على نطاق تملكه، ضع عنوانه في `NEXT_PUBLIC_SITE_URL`، مثل `https://your-domain.example`، ثم أعد البناء والنشر. يضم `sitemap.xml` روابط اللغات بعد ضبط النطاق، ويتوفر `robots.txt` في جذر الموقع.
+3. بعد نشر تطبيق Android، ضع رابط صفحته الرسمي في `NEXT_PUBLIC_GOOGLE_PLAY_URL`، مثل `https://play.google.com/store/apps/details?id=com.scannerplusx.app`، ثم أعد البناء والنشر. زر المتجر لا يُفعّل قبل ضبط الرابط حتى لا يقود الزوار إلى صفحة غير متاحة.
+4. أضف النطاق نفسه في حقل **Developer website** ضمن بيانات التواصل لتطبيقك في Google Play Console. يمكن استخدام `https://your-domain.example/privacy` كرابط سياسة الخصوصية و`https://your-domain.example/support` للدعم. راجع نص السياسة وفق إعدادات الإصدار النهائي قبل النشر.
 
-## Learn More
+## ربط AdMob الخاص بتطبيق Android
 
-To learn more about Next.js, take a look at the following resources:
+يوجد `public/app-ads.txt` بمعرّف الناشر الذي زوّدت به: `pub-2259594031936212`. بعد النشر، افتح `https://your-domain.example/app-ads.txt` وتأكد من ظهور السطر. قارن السطر مع **النص المخصص** داخل AdMob؛ إذا اختلف، استخدم نص حسابك. يقرأ AdMob هذا الملف من نطاق موقع المطور المرتبط بصفحة التطبيق في Google Play. قد يستغرق التحقق بعد تحديث صفحة المتجر بعض الوقت.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ملف `app-ads.txt` يخص إعلانات تطبيق Android. لا تُستخدم معرّفات وحدات AdMob للاستيراد والتصدير داخل الموقع.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## إعلانات الموقع، إذا رغبت بها
 
-## Deploy on Vercel
+إعلانات الموقع تحتاج **AdSense** منفصلًا عن وحدات AdMob في التطبيق. أضف النطاق إلى AdSense وانتظر حالة **Ready**، ثم ضع معرّف عميل AdSense (`ca-pub-...`) ومعرّف وحدة عرض ويب من 10 أرقام في:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```dotenv
+NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-1234567890123456
+NEXT_PUBLIC_ADSENSE_SLOT_ID=1234567890
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+سيحمّل الموقع سكربت AdSense ويعرض مساحة إعلانية واحدة فقط عند توفر القيمتين. يولد `postbuild` ملف `out/ads.txt` بمعرّف عميل AdSense المحدد. راجع إعدادات الخصوصية والموافقة المطلوبة لجمهور موقعك في حساب AdSense قبل تشغيل الإعلانات.
+
+## الصور
+
+- `assets/source/scanner-brand.png` من `my-app.png`، و`scanner-icon-art.png` من `my-app2.png`.
+- `assets/source/feature-scan.png` و`feature-library.png` رسوم مولدة خصيصًا للموقع بأسلوب مستوحى من صور المستخدم.
+- النسخ المعروضة على الموقع في `public/images/*.webp` مضغوطة لتحميل أسرع. أيقونة المتصفح في `public/icon.png`.
+
+هوية المطور وروابط GitHub تشير إلى [mohamed alromaihi / msr7799](https://github.com/msr7799).
