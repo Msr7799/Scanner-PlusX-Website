@@ -3,7 +3,7 @@ import Script from "next/script";
 import { isLocale, type Locale } from "@/lib/i18n";
 import "../globals.css";
 
-const localizedLocales = ["en", "es", "fr", "de", "hi"] as const;
+const localizedLocales = ["en", "ar", "es", "fr", "de", "hi"] as const;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 const validAdsenseClient = adsenseClient && /^ca-pub-\d{16}$/.test(adsenseClient);

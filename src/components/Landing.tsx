@@ -37,7 +37,7 @@ function PlayButton({ locale, compact = false }: { locale: Locale; compact?: boo
   return <a className={classes} href={playUrl} target="_blank" rel="noopener noreferrer" aria-label={t.playDownload}><Download size={19} /> {t.playDownload} <ArrowUpLeft size={17} /></a>;
 }
 
-export default function Landing({ locale = "ar" }: { locale?: Locale }) {
+export default function Landing({ locale = "en" }: { locale?: Locale }) {
   const t = homeCopy[locale];
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);

@@ -4,8 +4,8 @@ import { legalCopy } from "@/lib/legal-copy";
 import { localeAlternates } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: legalCopy.ar.support.title,
-  description: legalCopy.ar.support.intro,
+  title: legalCopy.en.support.title,
+  description: legalCopy.en.support.intro,
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")}/support` : undefined,
     languages: localeAlternates("support"),
@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function SupportPage() {
-  return <SupportContent locale="ar" />;
+  return <SupportContent locale="en" />;
 }
