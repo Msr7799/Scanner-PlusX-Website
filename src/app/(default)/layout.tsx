@@ -6,7 +6,7 @@ import Script from "next/script";
 import "../globals.css";
 import { homeCopy, localeAlternates, siteUrl } from "@/lib/i18n";
 
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-2259594031936212";
 const validAdsenseClient = adsenseClient && /^ca-pub-\d{16}$/.test(adsenseClient);
 
 export const metadata: Metadata = {
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: { title: "ScannerPlusX", description: homeCopy.en.heroBody, type: "website", locale: "en_US", images: [`${siteUrl}/images/app/feature-overview.png`] },
   twitter: { card: "summary_large_image", images: [`${siteUrl}/images/app/feature-overview.png`] },
   icons: { icon: "/icon.png" },
+  other: { "google-adsense-account": "ca-pub-2259594031936212" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Script
             id="adsense-loader"
             async
-            strategy="afterInteractive"
+            strategy="beforeInteractive"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
             crossOrigin="anonymous"
           />

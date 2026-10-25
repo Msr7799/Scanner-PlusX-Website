@@ -16,6 +16,10 @@ for (const [file, content] of expected) {
   const actual = readFileSync(join(out, file), "utf8").trim();
   if (actual !== content) throw new Error(`${file} does not contain the required root-route content`);
 }
+const verificationSource = readFileSync(join(process.cwd(), "google4b335da91bc6f3c2.html"), "utf8").trim();
+if (verificationSource !== expected.get("google4b335da91bc6f3c2.txt")) {
+  throw new Error("The root Google verification file differs from the deployed route content");
+}
 
 const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
 const robots = readFileSync(join(out, "robots.txt"), "utf8");

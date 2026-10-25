@@ -7,7 +7,7 @@ import { isLocale, siteUrl, type Locale } from "@/lib/i18n";
 import "../globals.css";
 
 const localizedLocales = ["en", "ar", "es", "fr", "de", "hi"] as const;
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-2259594031936212";
 const validAdsenseClient = adsenseClient && /^ca-pub-\d{16}$/.test(adsenseClient);
 
 export const dynamicParams = false;
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   applicationName: "ScannerPlusX",
   metadataBase: new URL(siteUrl),
   icons: { icon: "/icon.png" },
+  other: { "google-adsense-account": "ca-pub-2259594031936212" },
 };
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
@@ -29,7 +30,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   return <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
     <body className="antialiased">
       {children}
-      {validAdsenseClient && <Script id="adsense-loader" async strategy="afterInteractive" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" />}
+      {validAdsenseClient && <Script id="adsense-loader" async strategy="beforeInteractive" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" />}
     </body>
   </html>;
 }
