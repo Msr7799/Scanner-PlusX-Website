@@ -5,5 +5,13 @@
       "source": "/google4b335da91bc6f3c2.html",
       "destination": "/google4b335da91bc6f3c2.txt"
     }
+  ],
+  "headers": [
+    {
+      "source": "/amp",
+      "headers": [
+        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
+      ]
+    }
   ]
 }
