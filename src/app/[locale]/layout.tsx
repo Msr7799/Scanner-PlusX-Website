@@ -30,7 +30,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   return <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
     <body className="antialiased">
       {children}
-      {validAdsenseClient && <Script id="adsense-loader" async strategy="beforeInteractive" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" />}
+      {validAdsenseClient && <Script id="adsense-loader" async strategy="lazyOnload" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" />}
     </body>
   </html>;
 }
