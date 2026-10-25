@@ -2,10 +2,14 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const out = join(process.cwd(), "out");
+const vercel = JSON.parse(readFileSync(join(process.cwd(), "vercel.json"), "utf8"));
+if (!vercel.rewrites?.some(({ source, destination }) => source === "/google4b335da91bc6f3c2.html" && destination === "/google4b335da91bc6f3c2.txt")) {
+  throw new Error("Vercel must serve the Google verification path from the static text file");
+}
 const expected = new Map([
   ["app-ads.txt", "google.com, pub-2259594031936212, DIRECT, f08c47fec0942fa0"],
   ["ads.txt", "google.com, pub-2259594031936212, DIRECT, f08c47fec0942fa0"],
-  ["google4b335da91bc6f3c2.html", "google-site-verification: google4b335da91bc6f3c2.html"],
+  ["google4b335da91bc6f3c2.txt", "google-site-verification: google4b335da91bc6f3c2.html"],
 ]);
 
 for (const [file, content] of expected) {
