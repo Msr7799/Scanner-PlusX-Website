@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/write-ads-txt.mjs",
+    "postbuild": "node scripts/verify-static-files.mjs",
     "start": "next start",
     "lint": "eslint"
   },
