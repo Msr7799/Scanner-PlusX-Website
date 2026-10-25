@@ -1,3 +1,6 @@
+// المسار: scannerplusx-web/src/components/InfoShell.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: InfoShell.
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Mail } from "lucide-react";

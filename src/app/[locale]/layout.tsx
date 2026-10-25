@@ -1,10 +1,12 @@
+// المسار: scannerplusx-web/src/app/[locale]/layout.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: generateStaticParams، LocaleLayout.
 import type { Metadata } from "next";
 import Script from "next/script";
-import { isLocale, type Locale } from "@/lib/i18n";
+import { isLocale, siteUrl, type Locale } from "@/lib/i18n";
 import "../globals.css";
 
 const localizedLocales = ["en", "ar", "es", "fr", "de", "hi"] as const;
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 const validAdsenseClient = adsenseClient && /^ca-pub-\d{16}$/.test(adsenseClient);
 
@@ -17,7 +19,7 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   title: { default: "ScannerPlusX", template: "%s | ScannerPlusX" },
   applicationName: "ScannerPlusX",
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: new URL(siteUrl),
   icons: { icon: "/icon.png" },
 };
 

@@ -1,23 +1,19 @@
+// المسار: scannerplusx-web/src/app/[locale]/page.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: generateMetadata، segment، LocaleHome.
 import type { Metadata } from "next";
 import Landing from "@/components/Landing";
-import { homeCopy, isLocale, localeAlternates, localePath } from "@/lib/i18n";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+import { isLocale } from "@/lib/i18n";
+import { appJsonLd, homeMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const segment = (await params).locale;
   const locale = isLocale(segment) ? segment : "en";
-  const t = homeCopy[locale];
-  return {
-    title: `${t.heroLine1} ${t.heroLine2}`,
-    description: t.heroBody,
-    alternates: { canonical: siteUrl ? `${siteUrl}${localePath(locale)}` : undefined, languages: localeAlternates() },
-    openGraph: { title: "ScannerPlusX", description: t.heroBody, type: "website", locale, images: siteUrl ? [`${siteUrl}/images/scanner-brand.webp`] : undefined },
-    twitter: { card: "summary_large_image", images: siteUrl ? [`${siteUrl}/images/scanner-brand.webp`] : undefined },
-  };
+  return homeMetadata(locale);
 }
 
 export default async function LocaleHome({ params }: { params: Promise<{ locale: string }> }) {
   const segment = (await params).locale;
-  return <Landing locale={isLocale(segment) ? segment : "en"} />;
+  const locale = isLocale(segment) ? segment : "en";
+  return <><Landing locale={locale} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd(locale)).replace(/</g, "\\u003c") }} /></>;
 }

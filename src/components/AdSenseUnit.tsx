@@ -1,4 +1,7 @@
 "use client";
+// المسار: scannerplusx-web/src/components/AdSenseUnit.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: AdSenseUnit.
 
 import { useEffect, useRef } from "react";
 import type { Locale } from "@/lib/i18n";

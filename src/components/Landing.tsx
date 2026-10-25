@@ -1,4 +1,7 @@
 "use client";
+// المسار: scannerplusx-web/src/components/Landing.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: Reveal، PlayButton، Landing، closeMenu.
 
 import Image from "next/image";
 import Link from "next/link";
@@ -13,11 +16,10 @@ import { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import AdSenseUnit from "./AdSenseUnit";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ProductHighlights, { productCopy } from "./ProductHighlights";
 import { homeCopy, localePath, type Locale } from "@/lib/i18n";
 
-const playUrl = process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL?.startsWith("https://play.google.com/store/apps/details?id=")
-  ? process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL
-  : null;
+const playUrl = "https://play.google.com/store/apps/details?id=com.scannerplusx.app";
 
 const features = [
   { id: "scan", image: "/images/feature-scan.webp", icon: Camera },
@@ -33,12 +35,12 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 function PlayButton({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const t = homeCopy[locale];
   const classes = `glow-button shine inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-l from-[#7161f8] to-[#435edc] font-semibold text-white transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8aaff] ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"}`;
-  if (!playUrl) return <span className={`${classes} cursor-default opacity-70`} title={t.playHint}><Smartphone size={19} /> {t.playSoon}</span>;
   return <a className={classes} href={playUrl} target="_blank" rel="noopener noreferrer" aria-label={t.playDownload}><Download size={19} /> {t.playDownload} <ArrowUpLeft size={17} /></a>;
 }
 
 export default function Landing({ locale = "en" }: { locale?: Locale }) {
   const t = homeCopy[locale];
+  const product = productCopy[locale];
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const selected = features[activeFeature];
@@ -56,14 +58,15 @@ export default function Landing({ locale = "en" }: { locale?: Locale }) {
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-[#b8bbd0] xl:flex" aria-label={t.menuOpen}>
           <a className="transition hover:text-white" href="#features">{t.nav[0]}</a>
-          <a className="transition hover:text-white" href="#how-it-works">{t.nav[1]}</a>
+          <a className="transition hover:text-white" href="#tools">{product.navTools}</a>
+          <a className="transition hover:text-white" href="#tutorials">{product.navTutorials}</a>
+          <a className="transition hover:text-white" href="#premium">{product.navPremium}</a>
           <a className="transition hover:text-white" href="#privacy">{t.nav[2]}</a>
-          <a className="transition hover:text-white" href="#developer">{t.nav[3]}</a>
         </nav>
         <div className="hidden items-center gap-3 lg:flex"><LanguageSwitcher locale={locale} /><PlayButton locale={locale} compact /></div>
         <button className="grid size-11 shrink-0 place-items-center rounded-xl border border-white/15 text-white lg:hidden" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
       </div>
-      {menuOpen && <nav className="glass absolute inset-x-4 top-[88px] rounded-2xl p-5 lg:hidden" aria-label={t.menuOpen}><div className="flex flex-col gap-4 text-sm text-white"><LanguageSwitcher locale={locale} /><a onClick={closeMenu} href="#features">{t.nav[0]}</a><a onClick={closeMenu} href="#how-it-works">{t.nav[1]}</a><a onClick={closeMenu} href="#privacy">{t.nav[2]}</a><a onClick={closeMenu} href="#developer">{t.nav[3]}</a><div className="pt-2"><PlayButton locale={locale} compact /></div></div></nav>}
+      {menuOpen && <nav className="glass absolute inset-x-4 top-[88px] rounded-2xl p-5 lg:hidden" aria-label={t.menuOpen}><div className="flex flex-col gap-4 text-sm text-white"><LanguageSwitcher locale={locale} /><a onClick={closeMenu} href="#features">{t.nav[0]}</a><a onClick={closeMenu} href="#tools">{product.navTools}</a><a onClick={closeMenu} href="#tutorials">{product.navTutorials}</a><a onClick={closeMenu} href="#premium">{product.navPremium}</a><a onClick={closeMenu} href="#privacy">{t.nav[2]}</a><a onClick={closeMenu} href="#developer">{t.nav[3]}</a><div className="pt-2"><PlayButton locale={locale} compact /></div></div></nav>}
     </header>
 
     <main>
@@ -106,6 +109,8 @@ export default function Landing({ locale = "en" }: { locale?: Locale }) {
         const Icon = [Camera, Sparkles, Cloud][i];
         return <Reveal key={step.title} delay={i * .1} className="relative text-center"><div className="mx-auto grid size-16 place-items-center rounded-[20px] border border-[#796bee]/45 bg-[#201f3e] text-[#b5aaff] shadow-[0_0_30px_rgba(106,83,255,.16)]"><Icon size={25} /></div><span className="mt-7 block text-xs font-bold tracking-[.2em] text-[#8680d2]">0{i + 1}</span><h3 className="mt-2 text-xl font-semibold">{step.title}</h3><p className="mx-auto mt-3 max-w-[290px] text-sm leading-8 text-[#9da1b8]">{step.text}</p></Reveal>;
       })}</div></section>
+
+      <ProductHighlights locale={locale} />
 
       <AdSenseUnit locale={locale} />
 

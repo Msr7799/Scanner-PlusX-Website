@@ -1,4 +1,7 @@
 "use client";
+// المسار: scannerplusx-web/src/components/LanguageSwitcher.tsx
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: LanguageSwitcher.
 
 import { Globe2 } from "lucide-react";
 import { languageNames, localePath, locales, type Locale } from "@/lib/i18n";

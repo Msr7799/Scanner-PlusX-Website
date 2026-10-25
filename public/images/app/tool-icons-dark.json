@@ -1,0 +1,656 @@
+{
+  "atlas": "tool_icons_dark.png",
+  "width": 864,
+  "height": 756,
+  "format": "RGBA8888",
+  "regions": {
+    "pdf_editor": {
+      "x": 6,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "document_scanner": {
+      "x": 114,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "image_editor": {
+      "x": 222,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "ocr": {
+      "x": 330,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "text_extraction": {
+      "x": 438,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "translation": {
+      "x": 546,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "image_enhancement": {
+      "x": 654,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "smart_crop": {
+      "x": 762,
+      "y": 6,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "signature": {
+      "x": 6,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "merge_pdf": {
+      "x": 114,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "split_pdf": {
+      "x": 222,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "compress_pdf": {
+      "x": 330,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "pdf_to_image": {
+      "x": 438,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "image_to_pdf": {
+      "x": 546,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "rotate": {
+      "x": 654,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "resize": {
+      "x": 762,
+      "y": 114,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "crop": {
+      "x": 6,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "layers": {
+      "x": 114,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "text": {
+      "x": 222,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "shapes": {
+      "x": 330,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "color_picker": {
+      "x": 438,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "background_removal": {
+      "x": 546,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "templates": {
+      "x": 654,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "history": {
+      "x": 762,
+      "y": 222,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "settings": {
+      "x": 6,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_word": {
+      "x": 114,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_excel": {
+      "x": 222,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_powerpoint": {
+      "x": 330,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_pdf": {
+      "x": 438,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_signature": {
+      "x": 546,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "file_image": {
+      "x": 654,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_SINGLE": {
+      "x": 762,
+      "y": 330,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_BATCH": {
+      "x": 6,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_ID_CARDS": {
+      "x": 114,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_BOOK": {
+      "x": 222,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_TIMESTAMP": {
+      "x": 330,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_TO_WORD": {
+      "x": 438,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_TO_EXCEL": {
+      "x": 546,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_TO_PPT": {
+      "x": 654,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_PDF_TO_IMAGES": {
+      "x": 762,
+      "y": 438,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_IMAGES_TO_PDF": {
+      "x": 6,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_PDF_TOOLS": {
+      "x": 114,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_SIGN": {
+      "x": 222,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_EXTRACT_TEXT": {
+      "x": 330,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_TRANSLATE": {
+      "x": 438,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_QUESTION": {
+      "x": 546,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_FORMULA": {
+      "x": 654,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_ID_PHOTO": {
+      "x": 762,
+      "y": 546,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_RESTORE_PHOTO": {
+      "x": 6,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_SMART_ERASE": {
+      "x": 114,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_SCAN_CODE": {
+      "x": 222,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_SLIDES": {
+      "x": 330,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_WHITEBOARD": {
+      "x": 438,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    },
+    "registry_COUNT": {
+      "x": 546,
+      "y": 654,
+      "width": 96,
+      "height": 96,
+      "padding": 6,
+      "scale": 1.0,
+      "source_dimensions": {
+        "width": 96,
+        "height": 96
+      }
+    }
+  }
+}

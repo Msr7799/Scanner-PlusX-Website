@@ -1,5 +1,9 @@
+// المسار: scannerplusx-web/src/lib/i18n.ts
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: isLocale، localePath، localeAlternates.
 export const locales = ["en", "ar", "es", "fr", "de", "hi"] as const;
 export type Locale = (typeof locales)[number];
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://scanner-plusx.vercel.app").replace(/\/$/, "");
 
 export const languageNames: Record<Locale, string> = {
   ar: "العربية", en: "English", es: "Español", fr: "Français", de: "Deutsch", hi: "हिन्दी",
@@ -14,8 +18,10 @@ export function localePath(locale: Locale, page: "" | "privacy" | "support" = ""
 }
 
 export function localeAlternates(page: "" | "privacy" | "support" = "") {
-  const base = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
-  return base ? Object.fromEntries(locales.map((locale) => [locale, `${base}${localePath(locale, page)}`])) : undefined;
+  return {
+    ...Object.fromEntries(locales.map((locale) => [locale, `${siteUrl}${localePath(locale, page)}`])),
+    "x-default": `${siteUrl}${localePath("en", page)}`,
+  };
 }
 
 type Feature = { eyebrow: string; title: string; description: string; points: [string, string, string] };

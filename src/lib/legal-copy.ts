@@ -1,3 +1,6 @@
+// المسار: scannerplusx-web/src/lib/legal-copy.ts
+// الوظيفة: واجهة موقع ScannerPlusX والمحتوى متعدد اللغات.
+// الدوال: لا توجد دوال مستقلة.
 import type { Locale } from "./i18n";
 
 type Section = { title: string; body: string };
