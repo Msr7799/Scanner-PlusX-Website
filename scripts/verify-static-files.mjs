@@ -22,6 +22,15 @@ if (verificationSource !== expected.get("google4b335da91bc6f3c2.txt")) {
 }
 
 const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
+const sitemapStyle = readFileSync(join(out, "sitemap.xsl"), "utf8");
+if (!sitemap.includes('<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>') || !sitemapStyle.includes('select="/sm:urlset/sm:url"')) {
+  throw new Error("sitemap.xml must link to the exported sitemap stylesheet");
+}
+for (const [path, contentType] of [["/sitemap.xml", "application/xml; charset=utf-8"], ["/sitemap.xsl", "text/xsl; charset=utf-8"]]) {
+  if (!vercel.headers?.some(({ source, headers }) => source === path && headers?.some(({ key, value }) => key.toLowerCase() === "content-type" && value === contentType))) {
+    throw new Error(`Vercel must serve ${path} with ${contentType}`);
+  }
+}
 const home = readFileSync(join(out, "index.html"), "utf8");
 const amp = readFileSync(join(out, "amp"), "utf8");
 if (!home.includes('rel="amphtml"') || !home.includes('data-ad-slot="6595279533"')) {
