@@ -37,7 +37,7 @@ export const seoCopy: Record<Locale, { title: string; description: string; keywo
 export function homeMetadata(locale: Locale): Metadata {
   const { title, description, keywords } = seoCopy[locale];
   const url = `${siteUrl}${localePath(locale)}`;
-  const image = `${siteUrl}/images/app/feature-overview.png`;
+  const image = `${siteUrl}/images/app/feature-overview.jpg`;
   return {
     title,
     description,
@@ -60,7 +60,7 @@ export function appJsonLd(locale: Locale) {
     applicationCategory: "BusinessApplication",
     inLanguage: locale,
     url: `${siteUrl}${localePath(locale)}`,
-    image: `${siteUrl}/images/app/feature-overview.png`,
+    image: `${siteUrl}/images/app/feature-overview.jpg`,
     downloadUrl: playUrl,
     installUrl: playUrl,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

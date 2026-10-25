@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   applicationName: "ScannerPlusX",
   metadataBase: new URL(siteUrl),
   alternates: { canonical: siteUrl, languages: localeAlternates() },
-  openGraph: { title: "ScannerPlusX", description: homeCopy.en.heroBody, type: "website", locale: "en_US", images: [`${siteUrl}/images/app/feature-overview.png`] },
-  twitter: { card: "summary_large_image", images: [`${siteUrl}/images/app/feature-overview.png`] },
+  openGraph: { title: "ScannerPlusX", description: homeCopy.en.heroBody, type: "website", locale: "en_US", images: [`${siteUrl}/images/app/feature-overview.jpg`] },
+  twitter: { card: "summary_large_image", images: [`${siteUrl}/images/app/feature-overview.jpg`] },
   icons: { icon: "/icon.png" },
   other: { "google-adsense-account": "ca-pub-2259594031936212" },
 };

@@ -35,7 +35,7 @@ export function GET() {
   <h1>Scan documents. Get more done.</h1>
   <p>Capture paper, passports and whiteboards on Android. Extract text with OCR, edit and sign PDFs, and keep your documents organized.</p>
   <a class="button" href="${playUrl}">Get it on Google Play</a>
-  <div class="visual"><amp-img src="${siteUrl}/images/app/feature-overview.png" width="1024" height="500" layout="responsive" alt="ScannerPlusX document scanning and PDF tools"></amp-img></div>
+  <div class="visual"><amp-img src="${siteUrl}/images/app/feature-overview.jpg" width="1024" height="500" layout="responsive" alt="ScannerPlusX document scanning and PDF tools"></amp-img></div>
   <h2>Tools in the app</h2>
   <ul><li>Document, passport, batch and whiteboard scanning</li><li>OCR, translation and image enhancement</li><li>PDF editing, signatures, merging, splitting and compression</li></ul>
   <div class="ad-space"><amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-2259594031936212" data-ad-slot="6595279533" data-auto-format="rspv" data-full-width=""><div overflow=""></div></amp-ad></div>

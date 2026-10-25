@@ -5,10 +5,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   ArrowLeft, ArrowRight, ArrowUpLeft, BookOpenText, Camera, Check,
-  Cloud, Download, FileCheck2, FilePenLine, FileSearch,
+  Cloud, Download, FileCheck2,
   Layers3, LockKeyhole, Mail, Menu, ScanLine, ShieldCheck,
   Sparkles, X,
 } from "lucide-react";
@@ -18,12 +18,6 @@ import AdSenseUnit from "./AdSenseUnit";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ProductHighlights, { productCopy } from "./ProductHighlights";
 import { homeCopy, localePath, playUrl, type Locale } from "@/lib/i18n";
-
-const features = [
-  { id: "scan", image: "/images/feature-scan-768.webp", icon: Camera },
-  { id: "organize", image: "/images/feature-library-768.webp", icon: FileSearch },
-  { id: "pdf", image: "/images/scanner-brand-768.webp", icon: FilePenLine },
-] as const;
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const reduce = useReducedMotion();
@@ -40,10 +34,6 @@ export default function Landing({ locale = "en" }: { locale?: Locale }) {
   const t = homeCopy[locale];
   const product = productCopy[locale];
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
-  const selected = features[activeFeature];
-  const selectedCopy = t.features[activeFeature];
-  const reduce = useReducedMotion();
   const Arrow = locale === "ar" ? ArrowLeft : ArrowRight;
   const closeMenu = () => setMenuOpen(false);
 
@@ -68,22 +58,21 @@ export default function Landing({ locale = "en" }: { locale?: Locale }) {
     </header>
 
     <main>
-      <section className="hero-backdrop relative min-h-[780px] pt-[146px] pb-24 lg:min-h-[810px] lg:pt-[170px]">
+      <section className="hero-backdrop relative pt-[134px] pb-16 lg:pt-[158px] lg:pb-24">
         <div className="grid-texture pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="hero-orb pointer-events-none absolute top-[180px] left-[8%] size-72 rounded-full bg-[#5b40d8]" aria-hidden="true" />
-        <div className="container-wide relative grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-8">
-          <div className="relative z-10 max-w-[640px]">
+        <div className="container-wide relative">
+          <div className="relative z-10 mx-auto max-w-[900px] text-center">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#6f63db]/35 bg-[#5048a9]/15 px-4 py-2 text-[12px] font-semibold text-[#d1c8ff]"><Sparkles size={14} /> {t.heroBadge} <span className="size-1 rounded-full bg-[#bdaaff]" /> Android</div>
-            <h1 className="text-[clamp(3.25rem,6.7vw,6.4rem)] font-bold leading-[1.22] tracking-[-.055em]">{t.heroLine1}<br /><span className="text-gradient">{t.heroLine2}</span></h1>
-            <p className="mt-8 max-w-[560px] text-lg leading-[2] text-[#b3b7ca] sm:text-[20px]">{t.heroBody}</p>
-            <div className="mt-9 flex flex-wrap items-center gap-4"><PlayButton locale={locale} /><a href="#features" className="inline-flex items-center gap-2 rounded-2xl border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/5">{t.discover} <Arrow size={17} /></a></div>
-            <div className="mt-12 flex flex-wrap gap-5 text-xs text-[#8d91a8]">{t.heroPills.map((item) => <span key={item} className="flex items-center gap-2"><Check size={15} className="text-[#8d82ff]" /> {item}</span>)}</div>
+            <h1 className="text-[clamp(2.8rem,6.7vw,6.4rem)] font-bold leading-[1.18] tracking-[-.055em]">{t.heroLine1}<br /><span className="text-gradient">{t.heroLine2}</span></h1>
+            <p className="mx-auto mt-7 max-w-[730px] text-lg leading-[1.9] text-[#b3b7ca] sm:text-[20px]">{t.heroBody}</p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4"><PlayButton locale={locale} /><a href="#features" className="inline-flex items-center gap-2 rounded-2xl border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/5">{t.discover} <Arrow size={17} /></a></div>
+            <div className="mt-9 flex flex-wrap justify-center gap-x-5 gap-y-3 text-xs text-[#aeb1c6]">{t.heroPills.map((item) => <span key={item} className="flex items-center gap-2"><Check size={15} className="text-[#8d82ff]" /> {item}</span>)}</div>
           </div>
-          <div className="relative mx-auto w-full max-w-[650px] lg:max-w-none" aria-label={t.artAlt}>
-            <div className="absolute inset-[17%] rounded-full bg-gradient-to-l from-[#7d4af6]/35 via-[#147fc5]/15 to-[#e25285]/20 blur-[70px]" />
-            <div className="float-slow relative aspect-square"><Image src="/images/scanner-brand-768.webp" alt={t.artAlt} fill className="object-contain drop-shadow-[0_45px_60px_rgba(0,0,0,.48)]" sizes="(max-width: 1024px) 90vw, 52vw" loading="eager" fetchPriority="high" /></div>
-            <motion.div initial={reduce ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .7, duration: .7 }} className="glass glow-card absolute bottom-[13%] right-0 flex items-center gap-3 rounded-2xl px-4 py-3 sm:right-[2%]"><span className="grid size-10 place-items-center rounded-xl bg-[#6e62f8]/20 text-[#b2a8ff]"><FileCheck2 size={20} /></span><span><strong className="block text-sm">{t.readyShare}</strong><small className="text-[11px] text-[#9ba0b7]">{t.pdfReady}</small></span></motion.div>
-          </div>
+          <figure className="relative mx-auto mt-12 max-w-[1120px] overflow-hidden rounded-[28px] border border-white/15 bg-[#07132b] shadow-[0_28px_90px_rgba(0,0,0,.4)]">
+            <Image src="/images/app/feature-overview.webp" alt={t.artAlt} width={1024} height={500} className="block h-[240px] w-full object-cover object-[72%_center] sm:h-auto" sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1120px" loading="eager" fetchPriority="high" />
+            <figcaption className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-white/10 bg-[#0c1222] px-4 py-3 text-center text-xs text-[#a9aec8]"><strong className="text-white">{t.readyShare}</strong><span>{t.pdfReady}</span></figcaption>
+          </figure>
         </div>
         <div className="container-wide relative mt-12"><div className="fine-divider" /></div>
       </section>
@@ -97,11 +86,6 @@ export default function Landing({ locale = "en" }: { locale?: Locale }) {
           })}
         </div>
       </section>
-
-      <section className="relative py-14 lg:py-24"><div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#111326] to-transparent" /><div className="container-wide relative grid gap-10 lg:grid-cols-[.44fr_.56fr] lg:gap-16">
-        <div><Reveal><span className="eyebrow">{t.showcaseEyebrow}</span><h2 className="mt-4 text-4xl font-bold leading-[1.45] md:text-5xl">{t.showcaseLine1}<br /><span className="text-gradient">{t.showcaseLine2}</span></h2><p className="mt-5 leading-8 text-[#a6a9bd]">{t.showcaseBody}</p></Reveal><div className="mt-10 space-y-3" role="tablist" aria-label={t.showcaseLabel}>{features.map((feature, index) => <button key={feature.id} type="button" role="tab" aria-selected={activeFeature === index} aria-controls="feature-panel" onClick={() => setActiveFeature(index)} className={`flex w-full items-center gap-4 rounded-2xl border p-5 text-start transition ${activeFeature === index ? "border-[#8d7cff]/45 bg-[#8272fa]/12 text-white" : "border-white/8 bg-white/[.025] text-[#9fa3b9] hover:border-white/20"}`}><span className={`grid size-11 shrink-0 place-items-center rounded-xl ${activeFeature === index ? "bg-[#7768ef]/25 text-[#b8adff]" : "bg-white/5"}`}><feature.icon size={21} /></span><span className="flex-1"><span className="block text-xs text-[#9189d8]">{t.features[index].eyebrow}</span><strong className="mt-1 block text-base">{t.features[index].title}</strong></span><Arrow size={17} /></button>)}</div></div>
-        <div id="feature-panel" role="tabpanel" className="surface glow-card relative flex min-h-[560px] flex-col overflow-hidden rounded-[34px] border-white/15 p-7 sm:p-10"><div className="absolute -left-28 -top-20 size-72 rounded-full bg-[#5d4bda]/20 blur-[80px]" /><AnimatePresence mode="wait"><motion.div key={selected.id} initial={reduce ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: -15 }} transition={{ duration: .35 }} className="relative flex h-full flex-col"><div className="relative mx-auto aspect-square w-full max-w-[370px] flex-1"><Image src={selected.image} alt="" fill className="feature-image object-contain" sizes="(max-width: 1024px) 80vw, 32vw" /></div><div className="mt-auto"><h3 className="text-2xl font-semibold">{selectedCopy.title}</h3><p className="mt-3 max-w-[500px] text-sm leading-8 text-[#adb0c2]">{selectedCopy.description}</p><div className="mt-5 flex flex-wrap gap-2">{selectedCopy.points.map(point => <span key={point} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#c7c8d7]">{point}</span>)}</div></div></motion.div></AnimatePresence></div>
-      </div></section>
 
       <section id="how-it-works" className="container-wide scroll-mt-20 py-24 lg:py-32"><Reveal className="text-center"><span className="eyebrow">{t.workflowEyebrow}</span><h2 className="mt-4 text-4xl font-bold md:text-5xl">{t.workflowTitle}</h2><p className="mx-auto mt-5 max-w-xl leading-8 text-[#a6a9bd]">{t.workflowBody}</p></Reveal><div className="relative mt-16 grid gap-5 md:grid-cols-3"><div className="absolute left-[16%] right-[16%] top-8 hidden border-t border-dashed border-[#58546f] md:block" />{t.steps.map((step, i) => {
         const Icon = [Camera, Sparkles, Cloud][i];

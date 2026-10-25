@@ -40,7 +40,6 @@ html[lang="hi"] body { font-family: "Nirmala UI", "Noto Sans Devanagari", system
 .glow-button { box-shadow: 0 14px 42px rgba(82,77,235,.25), inset 0 1px 0 rgba(255,255,255,.24); }
 .glow-card { box-shadow: 0 18px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.06); }
 .hero-orb { filter: blur(70px); opacity: .45; }
-.feature-image { filter: drop-shadow(0 30px 55px rgba(31,27,94,.48)); }
 .fine-divider { height: 1px; background: linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent); }
 .float-slow { animation: float 7s ease-in-out infinite; }
 .float-slower { animation: float 9s ease-in-out -2s infinite; }
