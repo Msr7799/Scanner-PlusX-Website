@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://scanner-plusx.vercel.app/sitemap.xml

@@ -10,16 +10,14 @@ import {
   ArrowLeft, ArrowRight, ArrowUpLeft, BookOpenText, Camera, Check,
   Cloud, Download, FileCheck2, FilePenLine, FileSearch,
   Layers3, LockKeyhole, Mail, Menu, ScanLine, ShieldCheck,
-  Smartphone, Sparkles, X,
+  Sparkles, X,
 } from "lucide-react";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import AdSenseUnit from "./AdSenseUnit";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ProductHighlights, { productCopy } from "./ProductHighlights";
-import { homeCopy, localePath, type Locale } from "@/lib/i18n";
-
-const playUrl = "https://play.google.com/store/apps/details?id=com.scannerplusx.app";
+import { homeCopy, localePath, playUrl, type Locale } from "@/lib/i18n";
 
 const features = [
   { id: "scan", image: "/images/feature-scan.webp", icon: Camera },

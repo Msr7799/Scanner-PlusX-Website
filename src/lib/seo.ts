@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { localeAlternates, localePath, siteUrl, type Locale } from "./i18n";
-
-export const playUrl = "https://play.google.com/store/apps/details?id=com.scannerplusx.app";
+import { localeAlternates, localePath, playUrl, siteUrl, type Locale } from "./i18n";
 
 export const seoCopy: Record<Locale, { title: string; description: string; keywords: string[] }> = {
   en: {

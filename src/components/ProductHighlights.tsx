@@ -1,9 +1,7 @@
 import Image from "next/image";
 import toolAtlas from "../../public/images/app/tool-icons-dark.json";
 import premiumAtlas from "../../public/images/app/premium-icons-dark.json";
-import type { Locale } from "@/lib/i18n";
-
-const playUrl = "https://play.google.com/store/apps/details?id=com.scannerplusx.app";
+import { playUrl, type Locale } from "@/lib/i18n";
 
 const toolIds = [
   "document_scanner", "registry_BATCH", "registry_ID_CARDS", "registry_WHITEBOARD",

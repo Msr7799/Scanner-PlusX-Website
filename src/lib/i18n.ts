@@ -4,6 +4,9 @@
 export const locales = ["en", "ar", "es", "fr", "de", "hi"] as const;
 export type Locale = (typeof locales)[number];
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://scanner-plusx.vercel.app").replace(/\/$/, "");
+export const playUrl = process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL?.startsWith("https://play.google.com/store/apps/details?id=com.scannerplusx.app")
+  ? process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL
+  : "https://play.google.com/store/apps/details?id=com.scannerplusx.app";
 
 export const languageNames: Record<Locale, string> = {
   ar: "العربية", en: "English", es: "Español", fr: "Français", de: "Deutsch", hi: "हिन्दी",

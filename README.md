@@ -22,12 +22,14 @@ pnpm build
 
 1. انسخ `.env.example` إلى `.env.local` داخل مجلد الموقع.
 2. بعد نشر الموقع على نطاق تملكه، ضع عنوانه في `NEXT_PUBLIC_SITE_URL`، مثل `https://your-domain.example`، ثم أعد البناء والنشر. يضم `sitemap.xml` روابط اللغات بعد ضبط النطاق، ويتوفر `robots.txt` في جذر الموقع.
-3. بعد نشر تطبيق Android، ضع رابط صفحته الرسمي في `NEXT_PUBLIC_GOOGLE_PLAY_URL`، مثل `https://play.google.com/store/apps/details?id=com.scannerplusx.app`، ثم أعد البناء والنشر. زر المتجر لا يُفعّل قبل ضبط الرابط حتى لا يقود الزوار إلى صفحة غير متاحة.
+3. أزرار التحميل تشير إلى `https://play.google.com/store/apps/details?id=com.scannerplusx.app`. يمكنك ضبط `NEXT_PUBLIC_GOOGLE_PLAY_URL` إذا أردت إضافة معاملات للرابط الرسمي نفسه.
 4. أضف النطاق نفسه في حقل **Developer website** ضمن بيانات التواصل لتطبيقك في Google Play Console. يمكن استخدام `https://your-domain.example/privacy` كرابط سياسة الخصوصية و`https://your-domain.example/support` للدعم. راجع نص السياسة وفق إعدادات الإصدار النهائي قبل النشر.
 
 ## ربط AdMob الخاص بتطبيق Android
 
 يوجد `public/app-ads.txt` بمعرّف الناشر الذي زوّدت به: `pub-2259594031936212`. بعد النشر، افتح `https://your-domain.example/app-ads.txt` وتأكد من ظهور السطر. قارن السطر مع **النص المخصص** داخل AdMob؛ إذا اختلف، استخدم نص حسابك. يقرأ AdMob هذا الملف من نطاق موقع المطور المرتبط بصفحة التطبيق في Google Play. قد يستغرق التحقق بعد تحديث صفحة المتجر بعض الوقت.
+
+يوجد السطر نفسه في `public/ads.txt`، كما يوجد ملف إثبات الملكية `public/google4b335da91bc6f3c2.html`. تظهر هذه الملفات مباشرة في جذر الموقع على `/app-ads.txt` و`/ads.txt` و`/google4b335da91bc6f3c2.html` بعد النشر. يتحقق `postbuild` من وجودها في `out` ومن خريطة اللغات.
 
 ملف `app-ads.txt` يخص إعلانات تطبيق Android. لا تُستخدم معرّفات وحدات AdMob للاستيراد والتصدير داخل الموقع.
 
@@ -40,12 +42,19 @@ NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-1234567890123456
 NEXT_PUBLIC_ADSENSE_SLOT_ID=1234567890
 ```
 
-سيحمّل الموقع سكربت AdSense ويعرض مساحة إعلانية واحدة فقط عند توفر القيمتين. يولد `postbuild` ملف `out/ads.txt` بمعرّف عميل AdSense المحدد. راجع إعدادات الخصوصية والموافقة المطلوبة لجمهور موقعك في حساب AdSense قبل تشغيل الإعلانات.
+سيحمّل الموقع سكربت AdSense ويعرض مساحة إعلانية واحدة فقط عند توفر القيمتين. ملف `ads.txt` ثابت بمعرّف الناشر أعلاه؛ إذا كان معرّف AdSense مختلفًا، حدّث سطره وفق الحساب المعتمد. راجع إعدادات الخصوصية والموافقة المطلوبة لجمهور موقعك في حساب AdSense قبل تشغيل الإعلانات.
 
 ## الصور
 
 - `assets/source/scanner-brand.png` من `my-app.png`، و`scanner-icon-art.png` من `my-app2.png`.
 - `assets/source/feature-scan.png` و`feature-library.png` رسوم مولدة خصيصًا للموقع بأسلوب مستوحى من صور المستخدم.
 - النسخ المعروضة على الموقع في `public/images/*.webp` مضغوطة لتحميل أسرع. أيقونة المتصفح في `public/icon.png`.
+- معرض الأدوات يستخدم أطلس الأيقونات الأصلي في `public/images/app/`، وقسم الشروحات يستخدم ملفات GIF الثلاثة الأصلية في `public/images/tutorials/`. تظهر لوحة `626.png` وصورة المسح إلى PDF وواجهة Premium الأصلية في أقسام المميزات.
+
+## الظهور في محركات البحث
+
+- لكل لغة عنوان ووصف وروابط `canonical` و`hreflang` بما فيها `x-default`، مع بيانات `MobileApplication` المنظمة. الأسعار والتقييمات غير مخترعة؛ أسعار الاشتراك النهائية تُعرض داخل Google Play.
+- ينشئ Next.js `/sitemap.xml` للصفحات الأساسية باللغات الست و`/robots.txt` بعنوان الخريطة. استخدم عنوان الموقع الفعلي في `NEXT_PUBLIC_SITE_URL` عند تغيير النطاق، ثم أعد البناء والنشر.
+- بعد النشر، افحص ملف إثبات الملكية على النطاق المنشور، ثم أكمل خطوة **تأكيد** في Google Search Console وأرسل خريطة الموقع هناك.
 
 هوية المطور وروابط GitHub تشير إلى [mohamed alromaihi / msr7799](https://github.com/msr7799).
