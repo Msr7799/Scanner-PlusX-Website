@@ -22,6 +22,14 @@ if (verificationSource !== expected.get("google4b335da91bc6f3c2.txt")) {
 }
 
 const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
+const home = readFileSync(join(out, "index.html"), "utf8");
+const amp = readFileSync(join(out, "amp"), "utf8");
+if (!home.includes('rel="amphtml"') || !home.includes('data-ad-slot="6595279533"')) {
+  throw new Error("The homepage is missing its AMP link or AdSense unit");
+}
+if (!amp.includes('custom-element="amp-ad"') || !amp.includes('custom-element="amp-auto-ads"') || !amp.includes('data-ad-slot="6595279533"')) {
+  throw new Error("The AMP page is missing its required ad components or slot");
+}
 const robots = readFileSync(join(out, "robots.txt"), "utf8");
 if (!robots.includes("Sitemap:") || !robots.includes("/sitemap.xml")) {
   throw new Error("robots.txt is missing the sitemap route");
