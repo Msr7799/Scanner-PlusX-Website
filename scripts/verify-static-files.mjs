@@ -14,6 +14,13 @@ for (const [file, content] of expected) {
 }
 
 const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
+const robots = readFileSync(join(out, "robots.txt"), "utf8");
+if (!robots.includes("Sitemap:") || !robots.includes("/sitemap.xml")) {
+  throw new Error("robots.txt is missing the sitemap route");
+}
+if ((sitemap.match(/<loc>/g) ?? []).length !== 18) {
+  throw new Error("sitemap.xml must contain the 18 canonical localized pages");
+}
 for (const route of ["/ar", "/es", "/fr", "/de", "/hi", "/privacy", "/support"]) {
   if (!sitemap.includes(`${route}</loc>`)) {
     throw new Error(`sitemap.xml is missing ${route}`);
