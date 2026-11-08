@@ -43,10 +43,10 @@ const robots = readFileSync(join(out, "robots.txt"), "utf8");
 if (!robots.includes("Sitemap:") || !robots.includes("/sitemap.xml")) {
   throw new Error("robots.txt is missing the sitemap route");
 }
-if ((sitemap.match(/<loc>/g) ?? []).length !== 18) {
-  throw new Error("sitemap.xml must contain the 18 canonical localized pages");
+if ((sitemap.match(/<loc>/g) ?? []).length !== 24) {
+  throw new Error("sitemap.xml must contain the 24 canonical localized pages");
 }
-for (const route of ["/ar", "/es", "/fr", "/de", "/hi", "/privacy", "/support"]) {
+for (const route of ["/ar", "/es", "/fr", "/de", "/hi", "/privacy", "/support", "/terms"]) {
   if (!sitemap.includes(`${route}</loc>`)) {
     throw new Error(`sitemap.xml is missing ${route}`);
   }
