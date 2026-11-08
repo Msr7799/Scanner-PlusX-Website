@@ -6,7 +6,7 @@
 import { Globe2 } from "lucide-react";
 import { languageNames, localePath, locales, type Locale } from "@/lib/i18n";
 
-export default function LanguageSwitcher({ locale, page = "" }: { locale: Locale; page?: "" | "privacy" | "support" }) {
+export default function LanguageSwitcher({ locale, page = "" }: { locale: Locale; page?: "" | "privacy" | "support" | "terms" }) {
   return <label className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white">
     <Globe2 size={17} aria-hidden="true" />
     <span className="sr-only">Language / اللغة</span>
