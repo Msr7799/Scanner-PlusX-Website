@@ -16,11 +16,11 @@ export function isLocale(value: string): value is Locale {
   return locales.some((locale) => locale === value);
 }
 
-export function localePath(locale: Locale, page: "" | "privacy" | "support" = ""): string {
+export function localePath(locale: Locale, page: "" | "privacy" | "support" | "terms" = ""): string {
   return `${locale === "en" ? "" : `/${locale}`}${page ? `/${page}` : ""}` || "/";
 }
 
-export function localeAlternates(page: "" | "privacy" | "support" = "") {
+export function localeAlternates(page: "" | "privacy" | "support" | "terms" = "") {
   return {
     ...Object.fromEntries(locales.map((locale) => [locale, `${siteUrl}${localePath(locale, page)}`])),
     "x-default": `${siteUrl}${localePath("en", page)}`,
