@@ -13,7 +13,7 @@ function escapeXml(value: string): string {
 }
 
 export function GET() {
-  const pages = ["", "privacy", "support"] as const;
+  const pages = ["", "privacy", "support", "terms"] as const;
   const entries = pages.flatMap((page) => locales.map((locale) => {
     const url = `${siteUrl}${localePath(locale, page)}`;
     const alternates = Object.entries(localeAlternates(page)).map(([language, href]) =>
